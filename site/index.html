@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Arbre familial — prototype</title>
+<title>Family Alexis Paquet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -71,7 +71,7 @@ h1{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0 0 4px
 </head>
 <body>
 <div class="wrap">
-  <h1>Famille Paquet</h1>
+  <h1>Family Alexis Paquet</h1>
   <p class="sub">Données issues de ton export Gramps (Family15_07.ged), 67 personnes sur plusieurs générations. Arbre construit avec la bibliothèque open source <a href="https://github.com/donatso/family-chart" target="_blank" rel="noopener">family-chart</a>.</p>
 
   <div class="tabs">
@@ -254,7 +254,7 @@ document.querySelectorAll('.tab').forEach(btn=>{
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
-    if(btn.dataset.tab==='map'){ setTimeout(()=>map.invalidateSize(),50); }
+    if(btn.dataset.tab==='map'){ setTimeout(()=>{ map.invalidateSize(); renderMap(); },50); }
   });
 });
 
@@ -293,6 +293,8 @@ function aggregate(kind, filterSet){
 let heatLayer=null, markerLayer=L.layerGroup().addTo(map);
 let currentFilter=null;
 function renderMap(){
+  const size = map.getSize();
+  if(size.x===0 || size.y===0) return;
   if(heatLayer) map.removeLayer(heatLayer);
   markerLayer.clearLayers();
   const agg = aggregate('both', currentFilter);
