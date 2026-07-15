@@ -58,6 +58,18 @@ h1{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0 0 4px
 .fc-name{font-family:var(--font-display);font-size:12.5px;line-height:1.25}
 .fc-meta{font-family:var(--font-mono);font-size:11px}
 #map{height:460px;border-radius:10px;border:1px solid var(--line)}
+#mil-map{height:560px;border-radius:10px;border:1px solid var(--line)}
+.mil-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12px;color:var(--ink-soft)}
+.mil-legend span{display:flex;align-items:center;gap:6px}
+.mil-legend i{width:16px;height:16px;display:inline-block;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.mil-marker{border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;color:#fff}
+.mil-label{background:rgba(251,248,240,.92);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-family:var(--font-sans);font-size:11px;color:var(--ink);white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.mil-label b{font-weight:600}
+.mil-label em{font-style:normal;font-family:var(--font-mono);color:var(--ink-soft)}
+.leaflet-tooltip.mil-label:before{display:none}
+.tip-h{font-family:var(--font-display);font-size:13px;margin-bottom:4px}
+.tip-sec{margin-top:6px;padding-top:6px;border-top:1px solid var(--line)}
+.tip-lab{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft)}
 .leaflet-popup-content{font-family:var(--font-sans);font-size:13px}
 .note{font-size:12px;color:var(--ink-soft);margin-top:10px}
 .search-wrap{position:relative;flex:1;min-width:220px}
@@ -65,7 +77,7 @@ h1{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0 0 4px
 .search-results{position:absolute;top:36px;left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:6px;max-height:220px;overflow-y:auto;z-index:10000;display:none}
 .search-results div{padding:7px 10px;font-size:13px;cursor:pointer}
 .search-results div:hover{background:var(--accent-soft)}
-.tooltip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12px;line-height:1.5;max-width:220px;box-shadow:0 2px 8px rgba(0,0,0,0.15);display:none;z-index:50;font-family:var(--font-sans)}
+.tooltip{position:fixed;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:12px;line-height:1.5;max-width:320px;box-shadow:0 2px 8px rgba(0,0,0,0.15);display:none;z-index:10001;font-family:var(--font-sans)}
 .tooltip strong{font-family:var(--font-mono)}
 </style>
 </head>
@@ -77,6 +89,7 @@ h1{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0 0 4px
   <div class="tabs">
     <button class="tab active" data-tab="tree">Arbre familial</button>
     <button class="tab" data-tab="map">Lieux</button>
+    <button class="tab" data-tab="mil">Campagnes militaires</button>
   </div>
 
   <div class="panel active" id="panel-tree">
@@ -100,25 +113,41 @@ h1{font-family:var(--font-display);font-weight:500;font-size:26px;margin:0 0 4px
     <div id="map"></div>
     <p class="note">Cliquez sur un marqueur pour voir qui est né(e) ou décédé(e) à cet endroit.</p>
   </div>
+
+  <div class="panel" id="panel-mil">
+    <div class="toolbar">
+      <span>Parcours de</span>
+      <div class="search-wrap">
+        <input id="mil-search" placeholder="Rechercher une personne…" autocomplete="off">
+        <div class="search-results" id="mil-search-results"></div>
+      </div>
+      <button id="mil-clear-btn" style="display:none">Tous</button>
+    </div>
+    <div id="mil-map"></div>
+    <div id="mil-legend" class="mil-legend"></div>
+    <p class="note" id="mil-note"></p>
+  </div>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
 
 <script type="module">
 import * as f3 from "https://cdn.jsdelivr.net/npm/family-chart@latest/+esm";
-let ROOT, people, marriages, places;
+let ROOT, people, marriages, places, military;
 
 async function loadData(){
-  const [treeRes, marriagesRes, placesRes] = await Promise.all([
+  const [treeRes, marriagesRes, placesRes, milRes] = await Promise.all([
     fetch('./data/tree.json').then(r=>r.json()),
     fetch('./data/marriages.json').then(r=>r.json()),
-    fetch('./data/places.json').then(r=>r.json())
+    fetch('./data/places.json').then(r=>r.json()),
+    fetch('./data/military.json').then(r=>r.json())
   ]);
   ROOT = treeRes.root;
   people = treeRes.people;
   Object.keys(people).forEach(id=>people[id].id=id);
   marriages = marriagesRes;
   places = placesRes;
+  military = milRes;
 }
 
 const parentMode = {};
@@ -273,6 +302,7 @@ document.querySelectorAll('.tab').forEach(btn=>{
     btn.classList.add('active');
     document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
     if(btn.dataset.tab==='map'){ setTimeout(()=>{ map.invalidateSize(); renderMap(); },50); }
+    if(btn.dataset.tab==='mil'){ setTimeout(()=>{ milMap.invalidateSize(); renderMilitary(); },50); }
   });
 });
 
@@ -352,10 +382,161 @@ clearBtn.addEventListener('click',()=>{
   currentFilter=null; searchInput.value=''; clearBtn.style.display='none'; renderMap();
 });
 
+/* ---------- Campagnes militaires ---------- */
+
+const EVENT_STYLE = {
+  'mobilisation':   {color:'#B7791F', symbol:'★', label:'Mobilisation'},
+  'affectation':    {color:'#4F6B52', symbol:'●', label:'Affectation'},
+  'transfert':      {color:'#2C5F8A', symbol:'➜', label:'Transfert'},
+  'démobilisation': {color:'#6B6355', symbol:'⏹', label:'Démobilisation'},
+  'décès':          {color:'#8A3B2B', symbol:'✝', label:'Décès'}
+};
+const DEFAULT_STYLE = {color:'#6B6355', symbol:'●', label:'Autre'};
+function evStyle(t){ return EVENT_STYLE[t] || DEFAULT_STYLE; }
+
+let milMap, milLayer, milRouteLayer, milFilter=null;
+
+function milDates(e){
+  const a = formatDate(e.date_start), b = e.date_end ? formatDate(e.date_end) : null;
+  return b ? `${a} → ${b}` : a;
+}
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+}
+
+function milTooltipHtml(e){
+  const person = (military.people||[]).find(p=>p.id===e.person_id);
+  const reg = (military.regiments||[]).find(r=>r.id===e.regiment_id);
+  const st = evStyle(e.event_type);
+  let h = `<div class="tip-h">${esc(person?person.name:'—')}</div>`;
+  h += `<div><span class="tip-lab">${esc(st.label)}</span> · ${esc(e.location_name||'lieu non précisé')}</div>`;
+  h += `<div><strong>${esc(milDates(e))}</strong></div>`;
+  if(reg){
+    h += `<div class="tip-sec"><span class="tip-lab">Régiment</span><br>${esc(reg.name)}`;
+    if(reg.type) h += ` <em>(${esc(reg.type)})</em>`;
+    h += `</div>`;
+  }
+  if(e.description){
+    h += `<div class="tip-sec"><span class="tip-lab">Ce qu'il y faisait</span><br>${esc(e.description)}</div>`;
+  }
+  if(reg && reg.summary){
+    h += `<div class="tip-sec"><span class="tip-lab">Le régiment</span><br>${esc(reg.summary)}</div>`;
+  }
+  return h;
+}
+
+function milEvents(){
+  const tl = (military.timeline||[]).filter(e=>e.lat!=null && e.lon!=null);
+  return milFilter ? tl.filter(e=>e.person_id===milFilter) : tl;
+}
+
+function renderMilitary(){
+  if(!milMap) return;
+  const size = milMap.getSize();
+  if(size.x===0 || size.y===0) return;
+  milLayer.clearLayers();
+  milRouteLayer.clearLayers();
+
+  const evts = milEvents();
+
+  // route lines, one per person, in chronological order
+  const byPerson = {};
+  evts.forEach(e=>{ (byPerson[e.person_id]=byPerson[e.person_id]||[]).push(e); });
+  Object.values(byPerson).forEach(list=>{
+    list.sort((a,b)=>(a.date_start||'').localeCompare(b.date_start||''));
+    if(list.length>1){
+      L.polyline(list.map(e=>[e.lat,e.lon]), {color:'#2E2E2B', weight:1, opacity:.35, dashArray:'4,5'}).addTo(milRouteLayer);
+    }
+  });
+
+  evts.forEach(e=>{
+    const st = evStyle(e.event_type);
+    const icon = L.divIcon({
+      className:'',
+      html:`<div class="mil-marker" style="width:22px;height:22px;background:${st.color}">${st.symbol}</div>`,
+      iconSize:[22,22], iconAnchor:[11,11]
+    });
+    const m = L.marker([e.lat,e.lon], {icon}).addTo(milLayer);
+    m.bindTooltip(
+      `<b>${esc(e.location_name||'—')}</b><br><em>${esc(milDates(e))}</em>`,
+      {permanent:true, direction:'right', offset:[12,0], className:'mil-label', opacity:1}
+    );
+    m.on('mouseover', ev=>{
+      const tip = document.getElementById('tooltip');
+      tip.innerHTML = milTooltipHtml(e);
+      tip.style.display='block';
+      const oe = ev.originalEvent;
+      tip.style.left = (oe.clientX+14)+'px';
+      tip.style.top = (oe.clientY+14)+'px';
+    });
+    m.on('mousemove', ev=>{
+      const tip = document.getElementById('tooltip');
+      const oe = ev.originalEvent;
+      tip.style.left = (oe.clientX+14)+'px';
+      tip.style.top = (oe.clientY+14)+'px';
+    });
+    m.on('mouseout', hideTooltip);
+  });
+
+  if(evts.length){
+    milMap.fitBounds(L.latLngBounds(evts.map(e=>[e.lat,e.lon])), {padding:[60,60], maxZoom:9});
+  }
+
+  // note about entries with no location
+  const hidden = (military.timeline||[]).filter(e=>{
+    if(e.lat!=null && e.lon!=null) return false;
+    return milFilter ? e.person_id===milFilter : true;
+  }).length;
+  const note = document.getElementById('mil-note');
+  note.textContent = hidden
+    ? `Survolez un symbole pour le détail. ${hidden} événement(s) sans lieu précis dans les registres ne sont pas placés sur la carte.`
+    : `Survolez un symbole pour le détail.`;
+}
+
+function initMilitary(){
+  milMap = L.map('mil-map').setView([48.5,2.5],6);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'&copy; OpenStreetMap contributors', maxZoom:12
+  }).addTo(milMap);
+  milRouteLayer = L.layerGroup().addTo(milMap);
+  milLayer = L.layerGroup().addTo(milMap);
+
+  const legend = document.getElementById('mil-legend');
+  legend.innerHTML = Object.values(EVENT_STYLE).map(st=>
+    `<span><i style="background:${st.color}"></i>${st.label}</span>`).join('');
+
+  const input = document.getElementById('mil-search');
+  const results = document.getElementById('mil-search-results');
+  const clear = document.getElementById('mil-clear-btn');
+  input.addEventListener('input',()=>{
+    const q = input.value.trim().toLowerCase();
+    if(!q){ results.style.display='none'; return; }
+    const matches = (military.people||[]).filter(p=>p.name.toLowerCase().includes(q)).slice(0,8);
+    results.innerHTML='';
+    matches.forEach(p=>{
+      const div = document.createElement('div');
+      div.textContent = p.name;
+      div.addEventListener('click',()=>{
+        milFilter = p.id;
+        input.value = p.name;
+        results.style.display='none';
+        clear.style.display='inline-block';
+        renderMilitary();
+      });
+      results.appendChild(div);
+    });
+    results.style.display = matches.length? 'block':'none';
+  });
+  clear.addEventListener('click',()=>{
+    milFilter=null; input.value=''; clear.style.display='none'; renderMilitary();
+  });
+}
+
 loadData().then(()=>{
   initChart();
   renderAdoptRow();
   renderMap();
+  initMilitary();
 }).catch(err=>{
   document.querySelector('.wrap').insertAdjacentHTML('afterbegin',
     `<p style="color:var(--focus)">Impossible de charger les données (${err.message}). Si vous ouvrez ce fichier directement depuis le disque, lancez un petit serveur local (ex. <code>python3 -m http.server</code> depuis le dossier <code>site</code>) plutôt que de double-cliquer dessus — les navigateurs bloquent le chargement de fichiers locaux par sécurité.</p>`);

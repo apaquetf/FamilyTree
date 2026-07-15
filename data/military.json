@@ -1,0 +1,876 @@
+{
+  "$schema_notes": "Structure pensée pour une visualisation carte + frise chronologique (ex: timeline animée avec déplacements). 'regiments' contient le contexte historique (fiche régiment). 'timeline' contient les événements datés et géolocalisés à afficher point par point ou en trajectoire.",
+  "people": [
+    {
+      "id": "person-002",
+      "name": "Eugène Louis Martin",
+      "notes": "Artilleur, carrière 1917-1940 (classe probable 1917 ou 1918 au vu de l'incorporation). Parcours du dépôt d'artillerie à la démobilisation de 1920, puis rappels de réserve dans l'entre-deux-guerres et en 1939-1940."
+    },
+    {
+      "id": "person-003",
+      "name": "Girard Julien Henri",
+      "notes": "Sapeur du génie, 1916-1919. Incorporé le 9 août 1916, démobilisé le 20 septembre 1919 à Prémont (Aisne). Décédé le 27 février 1929 à Paris (12e arrondissement)."
+    },
+    {
+      "id": "person-004",
+      "name": "Villard Constant Edouard",
+      "notes": "Réserviste rappelé à la mobilisation générale du 1er août 1914. Affecté d'abord au génie territorial d'artillerie (33e RA), puis détaché en usine d'armement à Chartres (1915-1917), puis passé au 102e régiment d'infanterie. Décédé en service le 2 octobre 1918 à l'hôpital de Chartres, de maladie (thrombose mésentérique)."
+    }
+  ],
+  "regiments": [
+    {
+      "id": "2e-zouaves",
+      "name": "2e régiment de zouaves",
+      "short_name": "2e RZ",
+      "type": "Infanterie - Armée d'Afrique",
+      "existence": "1852-1962",
+      "summary": "Régiment d'infanterie de l'Armée d'Afrique, créé en 1852 en Algérie (province d'Oran), issu du vieux corps de zouaves de la conquête. Dissous et recréé plusieurs fois entre 1933 et 1946, définitivement dissous en Algérie en novembre 1962.",
+      "key_facts": [
+        "1852 : création à Oran à partir du 2e bataillon du régiment de zouaves originel",
+        "1854-1855 : campagne de Crimée (Sébastopol)",
+        "1859 : bataille de Magenta - premier régiment décoré de la Légion d'honneur sous le Second Empire, pour la prise du drapeau du 9e régiment d'infanterie autrichien",
+        "1863 : expédition du Mexique (Puebla)",
+        "1870-1871 : guerre franco-prussienne, durement touché à Frœschwiller/Wœrth",
+        "1884-1885 : campagnes d'Extrême-Orient",
+        "1907-1912 : opérations au Maroc",
+        "1914-1918 : Première Guerre mondiale - Charleroi, bataille de la Marne, Champagne (1915), Verdun (1916, Louvemont, côte du Poivre, Souville, reprise des forts de Douaumont et de Vaux)",
+        "1933 : dissous à Oujda (Maroc), recréé à Oran la même année",
+        "1940 : dissous au Levant, recréé à Oran en 1941",
+        "1944 : transformé en bataillon (2e BZP)",
+        "1962 : dissous en Algérie à l'indépendance"
+      ],
+      "battle_honors": [
+        "Laghouat 1852",
+        "Sébastopol 1854-1855",
+        "Magenta 1859",
+        "Puebla 1863",
+        "Extrême-Orient 1884-1885",
+        "Maroc 1907-1912",
+        "Champagne 1915",
+        "Verdun-Noyon 1916-1918",
+        "Vosges 1944"
+      ],
+      "decorations": "Drapeau décoré de la croix de la Légion d'Honneur (4 juin 1859, Magenta)",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/2e_r%C3%A9giment_de_zouaves",
+        "https://www.les-tirailleurs.fr/autres-unites/zouaves/2-rz",
+        "https://gallica.bnf.fr/ark:/12148/bpt6k63583121/f1.texteImage"
+      ]
+    },
+    {
+      "id": "33e-ra",
+      "name": "33e régiment d'artillerie (de campagne)",
+      "short_name": "33e RAC",
+      "type": "Artillerie de campagne",
+      "existence": "1873-1924 (puis reformé, devient 33e RA nord-africaine en 1939-1940)",
+      "garrison": "Angers (à partir de 1911 ; auparavant Poitiers)",
+      "summary": "Régiment d'artillerie de campagne formé à Poitiers en 1873, transféré à Angers en 1911. Rattaché à la 18e division d'infanterie pendant la Première Guerre mondiale. Porte les inscriptions Verdun 1916, l'Aisne 1917, le Matz 1918.",
+      "key_facts": [
+        "1873 : formation à Poitiers",
+        "1911 : transfert de garnison à Angers",
+        "1914 : bataille de la Marne, 1re bataille d'Ypres (Belgique)",
+        "1915 : combats en Belgique et en Artois",
+        "1916 : bataille de Verdun (défense de la cote 304), puis bataille de la Somme",
+        "Février 1917 : soutient la 3e brigade du corps expéditionnaire russe à Auberive",
+        "Avril-août 1917 : offensive Nivelle / bataille du Chemin des Dames",
+        "Fin 1917-1918 : repos en Lorraine, instruction des troupes américaines, secteur de Nancy",
+        "1924 : transformé en 109e régiment d'artillerie lourde (109e RAL) à Angers"
+      ],
+      "battle_honors": [
+        "Verdun 1916",
+        "L'Aisne 1917",
+        "Le Matz 1918"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/33e_r%C3%A9giment_d'artillerie",
+        "https://fr.geneawiki.com/wiki/33%C3%A8me_R%C3%A9giment_d'Artillerie_de_Campagne_-_1914-1918"
+      ]
+    },
+    {
+      "id": "49e-ra",
+      "name": "49e régiment d'artillerie (de campagne)",
+      "short_name": "49e RAC",
+      "type": "Artillerie de campagne",
+      "existence": "1911-1924 (dissous), recréé 1939 sur la ligne Maginot, disparaît juin 1940",
+      "garrison": "Poitiers (créé et caserné jusqu'à la mobilisation de 1914)",
+      "summary": "Créé le 1er janvier 1911 à Poitiers à partir de batteries des 20e et 33e RAC. Constitue l'artillerie de corps (AC9) du 9e corps d'armée, rattaché à la IIe Armée. Combat à Verdun en 1916 (le régiment y entre à partir du 21 avril 1916).",
+      "key_facts": [
+        "1911 : création à Poitiers",
+        "1914-1915 : opérations de début de guerre, Champagne",
+        "21 avril 1916 : le régiment quitte son secteur et se porte vers Verdun",
+        "Juin 1916 : étendard décoré de la croix de guerre près de Bussy-le-Château",
+        "Novembre 1917 : devient le 49e régiment d'artillerie de campagne porté",
+        "1918 : combats de septembre-octobre (Verneuil-sur-Serre, ligne Hundingstellung), plus de 400 prisonniers et 100 mitrailleuses capturées en 40 jours de combat",
+        "25 janvier 1919 : fourragère reçue à Metz",
+        "1er janvier 1924 : devient le 307e régiment d'artillerie portée",
+        "Septembre 1939 : recréé comme 49e régiment d'artillerie mobile de forteresse automobile (RAMFA) sur la ligne Maginot",
+        "Juin 1940 : capturé près de Rambervillers lors du repli de la ligne Maginot"
+      ],
+      "citations": "2 citations à l'ordre de l'armée, 1 à l'ordre du corps d'armée, 1 à l'ordre de la division",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/49e_r%C3%A9giment_d'artillerie",
+        "https://fr.geneawiki.com/wiki/49%C3%A8me_R%C3%A9giment_d'Artillerie_de_Campagne_-_1914-1918"
+      ]
+    },
+    {
+      "id": "32e-rac",
+      "name": "32e régiment d'artillerie (de campagne)",
+      "short_name": "32e RAC",
+      "type": "Artillerie de campagne",
+      "existence": "1873-1924 (puis 32e RAD), dissous/recréé plusieurs fois jusqu'à nos jours",
+      "garrison": "Orléans (depuis 1876) ; un groupe à Fontainebleau",
+      "summary": "Formé à Vincennes en 1873, en garnison à Orléans dès 1876. Rattaché à la 38e division d'infanterie durant toute la Première Guerre mondiale. Surnom « la Pucelle » en référence à Jeanne d'Arc et à la ville d'Orléans.",
+      "key_facts": [
+        "1873 : création à Vincennes",
+        "1876 : garnison à Orléans",
+        "Août 1914 : mobilisé à Fontainebleau, bataille des Frontières (Charleroi, Guise, Montmirail)",
+        "Fin 1914 : bataille de l'Yser, Ypres (Belgique)",
+        "1916 : bataille de Verdun",
+        "1917 : reprise du Plateau et du Fort de la Malmaison (octobre)",
+        "1918 : bataille de la Marne, citations multiples",
+        "1920 : occupation de la rive gauche du Rhin puis retour à Fontainebleau",
+        "1924 : fusionné avec le 13e RAC pour former le 32e régiment d'artillerie divisionnaire à Vincennes"
+      ],
+      "battle_honors": [
+        "Yser",
+        "Verdun",
+        "La Malmaison 1917",
+        "L'Avre",
+        "La Marne 1918"
+      ],
+      "citations": "4 citations à l'ordre de l'armée, fourragère aux couleurs de la médaille militaire",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/32e_r%C3%A9giment_d'artillerie",
+        "https://artillerie.asso.fr/basart/article.php3?id_article=1314"
+      ]
+    },
+    {
+      "id": "230e-rac",
+      "name": "230e régiment d'artillerie (de campagne)",
+      "short_name": "230e RAC",
+      "type": "Artillerie de campagne (régiment de guerre, numéroté à partir de 201)",
+      "existence": "1er avril 1917 - 1920 (n'a existé que pendant la guerre)",
+      "garrison": "Pas de garnison de paix — formé au front à partir de groupes existants",
+      "summary": "Créé le 1er avril 1917 à partir des trois groupes de 75 qui constituaient depuis 1914 l'artillerie de la 55e division d'infanterie (AD55) : un groupe de renforcement du 30e RAC, un groupe du 13e RAC et un groupe du 45e RAC. Dissous après l'armistice, seul régiment d'artillerie n'ayant existé que le temps de la guerre.",
+      "key_facts": [
+        "1914 : les groupes constitutifs combattent sous leurs numéros d'origine — Saint-Mihiel, Oise, bataille de la Marne, secteur de Soissons",
+        "1er avril 1917 : constitution officielle du 230e RAC",
+        "1917 : secteur de Reims, Chemin des Dames (Juvincourt, bois de la Mine)",
+        "1918 : Chauny, Mont Renaud, Moulin-sous-Touvent, ferme de l'Arbre, Guise",
+        "29 octobre 1918 : nouvelle citation à l'ordre du 7e corps d'armée",
+        "1er janvier 1920 : composition officiers du 230e RAC",
+        "1920 : dissolution après l'armistice, faute de transformation prévue"
+      ],
+      "citations": "Citation à l'ordre du 30e C.A. (21 juin 1918) : 'excellent régiment... haut moral de tout son personnel'",
+      "sources": [
+        "https://gallica.bnf.fr/ark:/12148/bpt6k6216865x/texteBrut",
+        "http://www.chtimiste.com/regiments/artillerie201-276.htm"
+      ]
+    },
+    {
+      "id": "117e-ra",
+      "name": "117e régiment d'artillerie (lourde)",
+      "short_name": "117e RA / 117e RAL",
+      "type": "Artillerie lourde",
+      "existence": "Créé pendant la Première Guerre mondiale (Régiment d'Artillerie Lourde du Corps d'Armée), garnison de paix à Toulouse dans l'entre-deux-guerres",
+      "garrison": "Toulouse (quartier Compans)",
+      "summary": "Régiment d'artillerie lourde de corps d'armée, formé de groupes fournis par la réserve générale d'artillerie et par les 317e et 417e régiments d'artillerie lourde. En garnison à Toulouse (quartier Compans) durant l'entre-deux-guerres, où il partage un monument aux morts avec le 23e RAC.",
+      "key_facts": [
+        "1914-1918 : campagne comme régiment d'artillerie lourde de corps d'armée",
+        "Entre-deux-guerres : garnison à Toulouse, quartier Compans",
+        "1934 : période probable d'affectation de réservistes/appelés au régiment (garnison de paix)"
+      ],
+      "sources": [
+        "https://artillerie.asso.fr/basart/article.php3?id_article=1837",
+        "https://francearchives.gouv.fr/fr/subject/221829811"
+      ]
+    },
+    {
+      "id": "cm-501-chars",
+      "name": "Centre Mobilisateur 501 / 501e régiment de chars de combat",
+      "short_name": "CM 501 / 501e RCC",
+      "type": "Chars de combat",
+      "existence": "501e RCC : 1918/1920-1939 (garnison de paix) ; CM 501 : structure de mobilisation associée, garnison à Tours",
+      "garrison": "Tours",
+      "summary": "Le 501e régiment de chars de combat, premier régiment de l'artillerie spéciale devenu régiment de chars, prend son nom définitif le 13 mai 1920 et s'installe à Tours. Le Centre Mobilisateur 501 (CM 501) est la structure de mobilisation associée à ce régiment, chargée en temps de paix de préparer la mise sur pied de bataillons de chars de combat en cas de guerre — d'où l'affectation d'un réserviste au 'CM Chars 501 (GVC)' en 1937, probablement au titre de la Garde des Voies de Communication ou d'une affectation de réserve rattachée au centre.",
+      "key_facts": [
+        "1918 : création du 501e régiment d'artillerie spéciale (501e RAS), premier engagement de chars français à Berry-au-Bac (16 avril 1917) à l'origine de la filiation",
+        "13 mai 1920 : le régiment prend le nom de 501e régiment de chars de combat et s'installe à Tours",
+        "1937 : les chars FT du régiment commencent à être remplacés par des Renault R35",
+        "Septembre 1939 : le 501e RCC est dissous ; il forme, avec le CM 501 de Tours, plusieurs bataillons de chars de combat (1er, 2e, 30e, 31e BCC)",
+        "1940 : les bataillons issus du 501e sont engagés séparément dans la bataille de France",
+        "1943 : le régiment est recréé en Tripolitaine à partir des chars de la France libre, rejoint la 2e DB du général Leclerc, libère Paris et Strasbourg en 1944"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/501e_RCC",
+        "http://cavaliers.blindes.free.fr/rgtactive/501rcch3.html"
+      ]
+    },
+    {
+      "id": "91e-rad",
+      "name": "91e régiment d'artillerie divisionnaire",
+      "short_name": "91e RAD",
+      "type": "Artillerie divisionnaire",
+      "existence": "Mobilisé en 1939, campagne de France 1939-1940",
+      "garrison": "À vérifier (rappel de réserviste le 28 août 1939, veille de la mobilisation générale)",
+      "summary": "Régiment d'artillerie divisionnaire de l'armée française mobilisé en 1939. Le rappel d'Eugène Louis Martin le 28 août 1939 correspond à la période de rappel des réservistes juste avant la déclaration de guerre (3 septembre 1939).",
+      "key_facts": [
+        "28 août 1939 : période de rappel des réservistes, avant la mobilisation générale du 1er-2 septembre 1939",
+        "À enrichir : JMO et affectation divisionnaire précise à rechercher (Service historique de la Défense, GR 34 N / 25 N)"
+      ],
+      "sources": [
+        "https://fr.geneawiki.com/index.php/R%C3%A9giments_d'Artillerie_fran%C3%A7ais_-_Guerre_1939-1945"
+      ]
+    },
+    {
+      "id": "di-92-a-verifier",
+      "name": "« DI 92 » — unité à identifier",
+      "short_name": "DI 92",
+      "type": "À vérifier",
+      "existence": "Affectation au 1er janvier 1940",
+      "garrison": "Inconnue",
+      "summary": "ATTENTION — point de vigilance généalogique : aucune '92e division d'infanterie' française n'est attestée en 1939-1940 (le numéro 92 correspond à une division d'infanterie allemande de la Première Guerre mondiale et à une division afro-américaine de l'US Army, mais pas à une grande unité française de 1940). 'DI 92' pourrait désigner autre chose : un dépôt d'infanterie n°92, une mauvaise transcription d'un autre numéro de division, ou une abréviation propre au document source (fiche matricule). À vérifier directement sur l'acte/fiche matricule d'origine, ou auprès du Service historique de la Défense (Vincennes).",
+      "key_facts": [],
+      "sources": []
+    },
+    {
+      "id": "20e-rac",
+      "name": "20e régiment d'artillerie (de campagne)",
+      "short_name": "20e RAC",
+      "type": "Artillerie de campagne",
+      "existence": "Ancien régime napoléonien puis 1872-1940 sous ce numéro (puis 20e RA nord-africain)",
+      "garrison": "Poitiers (quartier Ladmirault)",
+      "summary": "Régiment d'artillerie de campagne casernée à Poitiers, artillerie de la 17e division d'infanterie. En 1914, mobilisé à Poitiers, rassemblé près de Bratte (Meurthe-et-Moselle) puis engagé dans le Nord et en Lorraine (défense de Morhange). De 1922 à 1940, le quartier d'Aboville à Poitiers (garnison historique du 33e RA) accueille l'École Militaire de l'Artillerie, tandis que le 20e RA reste caserné au quartier Ladmirault.",
+      "key_facts": [
+        "Casernement de paix : Poitiers",
+        "Août 1914 : mobilisation, secteur de Bratte (Meurthe-et-Moselle) puis Nord de la France et Lorraine",
+        "23 août 1914 : premier engagement au feu près d'Houdremont (Belgique)",
+        "30 août 1914 : bataille de Fère (retraite vers la Marne)",
+        "16 janvier 1919 : fourragère aux couleurs de la croix de guerre 1914-1918",
+        "Entre-deux-guerres : régiment de soutien du 33e RA, garnison à Poitiers"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/20e_r%C3%A9giment_d'artillerie",
+        "https://gallica.bnf.fr/ark:/12148/bpt6k6420669s/texteBrut"
+      ]
+    },
+    {
+      "id": "cm-artillerie-9",
+      "name": "Centre Mobilisateur d'Artillerie n°9",
+      "short_name": "C.M. Art° n°9",
+      "type": "Structure de mobilisation (pas une unité combattante)",
+      "existence": "Entre-deux-guerres",
+      "garrison": "À vérifier (probablement Poitiers ou Angers, région du 9e corps d'armée / 9e brigade d'artillerie)",
+      "summary": "Un Centre Mobilisateur (CM) n'est pas une unité de combat mais une structure administrative de temps de paix chargée de préparer, pour un ou plusieurs régiments d'artillerie, la mobilisation rapide de personnel et de matériel en cas de guerre. L'affectation d'Eugène Louis Martin au CM Artillerie n°9 s'inscrit dans son parcours de réserviste, entre le 230e RAC (1920) et le CM Chars 501 (1937).",
+      "key_facts": [
+        "Structure de réserve/mobilisation, non combattante en temps de paix",
+        "À enrichir : rattachement précis (corps d'armée, région militaire) à vérifier au SHD"
+      ],
+      "sources": []
+    },
+    {
+      "id": "6e-genie",
+      "name": "6e régiment du génie",
+      "short_name": "6e RG",
+      "type": "Génie militaire",
+      "existence": "1894-1993 (avec interruptions)",
+      "garrison": "Angers (quartier Éblé)",
+      "summary": "Créé à Angers en 1894, le 6e RG a vocation à servir outre-mer dès l'origine (Madagascar 1895, Chine 1900 contre la révolte des Boxers). Pendant la Première Guerre mondiale, ses compagnies interviennent sur tous les fronts : Marne, Verdun, Aisne, Champagne. 15 compagnies obtiennent le droit au port de la fourragère aux couleurs de la croix de guerre 1914-1918.",
+      "key_facts": [
+        "1894 : création à Angers",
+        "1895 : Madagascar ; 1900 : Chine (révolte des Boxers)",
+        "1914-1918 : compagnies engagées sur la Marne, à Verdun, dans l'Aisne et en Champagne — 72 citations dont 47 à l'ordre de l'armée",
+        "Entre-deux-guerres : retour au quartier Éblé à Angers, extension au quartier Espagne",
+        "1939-1940 : dépôt de guerre du génie n°6 à Angers ; participation aux combats des cadets de Saumur en juin 1940"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/6e_r%C3%A9giment_du_g%C3%A9nie",
+        "https://www.wiki-anjou.fr/index.php/Historique_du_6e_r%C3%A9giment_du_g%C3%A9nie_1914_1918"
+      ]
+    },
+    {
+      "id": "7e-genie",
+      "name": "7e régiment du génie",
+      "short_name": "7e RG",
+      "type": "Génie militaire (spécialité pontonniers)",
+      "existence": "1884-1914 (dissous à la mobilisation, redevient dépôt), reconstitué 1920",
+      "garrison": "Avignon (caserne d'Hautpoul, puis caserne Saint-Roch après 1920)",
+      "summary": "Formé en 1884 à Avignon. Seul régiment du génie à regrouper, après les lois-cadres de 1912, deux bataillons de pontage d'armée. Dissous à la mobilisation de 1914 et transformé en Dépôt du Génie n°4, il forme les 15e, 23e et 24e bataillons du génie qui s'illustrent notamment à Verdun (passage de la Meuse à Talou, 1917) et construisent le premier pont de bateaux sur le Rhin en décembre 1918 à Mayence. Reconstitué à Avignon le 1er janvier 1920.",
+      "key_facts": [
+        "1884 : création à Avignon, caserne d'Hautpoul",
+        "1914 : dissolution à la mobilisation, devient Dépôt du Génie n°4 ; forme les 15e, 23e et 24e bataillons du génie",
+        "1917 : compagnies citées pour la construction de ponts sur la Meuse (Verdun) et sur l'Aisne (avril 1917, passages entre Génicourt et Sapigneul)",
+        "Décembre 1918 : première compagnie de pontonniers à lancer un pont de bateaux sur le Rhin, à Mayence",
+        "1er janvier 1920 : régiment reconstitué à Avignon, caserne Saint-Roch, avec état-major, deux bataillons et une CHR"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/7e_r%C3%A9giment_du_g%C3%A9nie",
+        "https://gallica.bnf.fr/ark:/12148/bpt6k63461148/texteBrut"
+      ]
+    },
+    {
+      "id": "9e-genie",
+      "name": "9e régiment du génie",
+      "short_name": "9e RG",
+      "type": "Génie militaire",
+      "existence": "1914-1992 (avec interruptions)",
+      "garrison": "Verdun (caserné à la Citadelle)",
+      "summary": "Créé le 1er mai 1914 à Verdun (Citadelle), à partir du 6e bataillon de campagne et du 25e bataillon de place. Fortement engagé dans la région de Verdun dès 1914 (Woëvre, Hauts-de-Meuse), puis à la bataille de la Somme en 1916 et sur le Chemin des Dames en 1917. Devise : « Allons-y, on passera ».",
+      "key_facts": [
+        "1er mai 1914 : création à Verdun (Citadelle)",
+        "Août 1914 : combats dans la Woëvre et la région de Verdun (troupes de couverture, garnison de Saint-Mihiel)",
+        "1915 : Argonne, guerre de mines",
+        "1916 : bataille de Verdun (Mort-Homme), bataille de la Somme",
+        "1917 : Chemin des Dames (Aisne)",
+        "1918 : passage de l'Oise",
+        "1944 : Colmar",
+        "Inscriptions au drapeau : Verdun 1916, la Somme 1916, l'Aisne 1917, l'Oise 1918, Colmar 1944"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/9e_r%C3%A9giment_du_g%C3%A9nie",
+        "https://fr.geneawiki.com/wiki/9%C3%A8me_R%C3%A9giment_du_G%C3%A9nie_-_1914-1918"
+      ]
+    },
+    {
+      "id": "1er-genie",
+      "name": "1er régiment du génie",
+      "short_name": "1er RG",
+      "type": "Génie militaire",
+      "existence": "1814-2010 (avec interruptions) — le plus ancien régiment du génie français",
+      "garrison": "Versailles (caserne des Petites Écuries), de l'après-1871 à 1914",
+      "summary": "Le plus ancien régiment du génie de l'armée française, créé en 1814. Regroupé à Versailles après 1871. Dissous à la mobilisation de 1914 et transformé en dépôt de guerre (basé à Montpellier de 1914 à 1919), formant les 4e, 5e et 22e bataillons du génie qui fournissent des compagnies divisionnaires et de corps d'armée sur de nombreux fronts.",
+      "key_facts": [
+        "1814 : création comme 1er régiment de sapeurs-mineurs",
+        "Après 1871 : garnison à Versailles, caserne des Petites Écuries",
+        "1914 : dissolution à la mobilisation, dépôt de guerre transféré à Montpellier",
+        "1914-1918 : ses bataillons (4e, 5e, 22e) fournissent des compagnies engagées notamment à Verdun, sur l'Aisne, dans la Somme",
+        "Entre-deux-guerres : garnisons tournantes (Versailles, Metz, Montpellier, Arras), puis Strasbourg à partir de 1928"
+      ],
+      "sources": [
+        "https://fr.wikipedia.org/wiki/1er_r%C3%A9giment_du_g%C3%A9nie",
+        "http://jburavand.free.fr/historiques%20RG/RG001_Histo.pdf"
+      ]
+    },
+    {
+      "id": "102e-ri",
+      "name": "102e régiment d'infanterie",
+      "short_name": "102e RI",
+      "type": "Infanterie de ligne",
+      "existence": "Ancien régime jusqu'à 1940 sous ce numéro (héritier de 1677)",
+      "garrison": "À préciser (garnison de paix hors période de guerre)",
+      "summary": "Régiment d'infanterie de ligne engagé sur de nombreux secteurs du front lors de la Première Guerre mondiale : Verdun et la Woëvre (secteur 'Pelles et Pioches' de la 7e DI), la Lorraine, la Champagne (mont Cornillet, où il subit les attaques de mars 1918 malgré les gaz), puis la Marne et l'Aisne en 1918. Décoré de la croix de guerre 1914-1918 avec deux citations à l'ordre de l'armée et droit au port de la fourragère.",
+      "key_facts": [
+        "Secteur de Verdun / Woëvre : la 7e division d'infanterie, dont il fait partie, est surnommée 'Pelles et Pioches'",
+        "Lorraine : quatre mois de secteur, repos physique et moral, entraînement au camp de Saffais",
+        "Mont Cornillet (Champagne) : subit les attaques de mars 1918 malgré gaz et bombardements violents",
+        "16-30 juillet 1918 : contre-attaque et poursuit l'ennemi sur 12 km, plus de 150 prisonniers dont 4 officiers — première citation à l'ordre de l'armée",
+        "Fin de guerre : engagements sur l'Aisne et la Marne jusqu'à l'armistice",
+        "Inscriptions au drapeau : L'Ourcq 1914, Reims 1918, Somme-Py 1918 (et inscriptions plus anciennes : Valmy 1792, Zurich 1799, Wagram 1809)"
+      ],
+      "citations": "Croix de guerre 1914-1918 avec deux citations à l'ordre de l'armée ; fourragère aux couleurs du ruban de la croix de guerre 1914-1918",
+      "sources": [
+        "http://tableaudhonneur.free.fr/RI-102.pdf",
+        "https://en.wikipedia.org/wiki/102nd_Infantry_Regiment_(France)",
+        "https://memorial19141918.wordpress.com/2024/04/08/102eme-ri/"
+      ]
+    }
+  ],
+  "location_gazetteer": [
+    {
+      "name": "Oran, Algérie",
+      "lat": 35.6969,
+      "lon": -0.6331
+    },
+    {
+      "name": "Sébastopol, Crimée",
+      "lat": 44.6054,
+      "lon": 33.522
+    },
+    {
+      "name": "Magenta, Italie",
+      "lat": 45.4667,
+      "lon": 8.8833
+    },
+    {
+      "name": "Puebla, Mexique",
+      "lat": 19.0414,
+      "lon": -98.2063
+    },
+    {
+      "name": "Frœschwiller / Wœrth, Alsace",
+      "lat": 48.9333,
+      "lon": 7.75
+    },
+    {
+      "name": "Charleroi, Belgique",
+      "lat": 50.4114,
+      "lon": 4.4447
+    },
+    {
+      "name": "Marne (secteur bataille de la Marne)",
+      "lat": 48.9667,
+      "lon": 3.6
+    },
+    {
+      "name": "Champagne (Épine de Védegrange)",
+      "lat": 49.1167,
+      "lon": 4.3667
+    },
+    {
+      "name": "Verdun",
+      "lat": 49.1594,
+      "lon": 5.3819
+    },
+    {
+      "name": "Louvemont, Verdun",
+      "lat": 49.2,
+      "lon": 5.4167
+    },
+    {
+      "name": "Côte du Poivre, Verdun",
+      "lat": 49.19,
+      "lon": 5.39
+    },
+    {
+      "name": "Fort de Douaumont, Verdun",
+      "lat": 49.21,
+      "lon": 5.43
+    },
+    {
+      "name": "Fort de Vaux, Verdun",
+      "lat": 49.19,
+      "lon": 5.45
+    },
+    {
+      "name": "Oujda, Maroc",
+      "lat": 34.6867,
+      "lon": -1.9114
+    },
+    {
+      "name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632
+    },
+    {
+      "name": "Poitiers",
+      "lat": 46.5802,
+      "lon": 0.3404
+    },
+    {
+      "name": "Orléans",
+      "lat": 47.9029,
+      "lon": 1.9093
+    },
+    {
+      "name": "Fontainebleau",
+      "lat": 48.4042,
+      "lon": 2.7015
+    },
+    {
+      "name": "Toulouse",
+      "lat": 43.6047,
+      "lon": 1.4442
+    },
+    {
+      "name": "Tours",
+      "lat": 47.3941,
+      "lon": 0.6848
+    },
+    {
+      "name": "Avignon",
+      "lat": 43.9493,
+      "lon": 4.8055
+    },
+    {
+      "name": "Versailles",
+      "lat": 48.8014,
+      "lon": 2.1301
+    },
+    {
+      "name": "Paris 12e arrondissement",
+      "lat": 48.8352,
+      "lon": 2.4145
+    },
+    {
+      "name": "Prémont (Aisne)",
+      "lat": 49.9689,
+      "lon": 3.3714
+    },
+    {
+      "name": "Chartres",
+      "lat": 48.4467,
+      "lon": 1.4894
+    },
+    {
+      "name": "Mont Cornillet, Champagne",
+      "lat": 49.1667,
+      "lon": 4.3833
+    }
+  ],
+  "timeline": [
+    {
+      "id": "evt-em-001",
+      "person_id": "person-002",
+      "regiment_id": "33e-ra",
+      "date_start": "1917-05-03",
+      "date_end": "",
+      "event_type": "mobilisation",
+      "location_name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632,
+      "description": "Incorporé au 33e régiment d'artillerie.",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-002",
+      "person_id": "person-002",
+      "regiment_id": "49e-ra",
+      "date_start": "1918-01-11",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "Poitiers",
+      "lat": 46.5802,
+      "lon": 0.3404,
+      "description": "Passé au 49e régiment d'artillerie, immatriculé (répertoire) sous le n°9021 (lecture corrigée d'après la fiche matricule originale — précédemment transcrit 9012).",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-003",
+      "person_id": "person-002",
+      "regiment_id": "32e-rac",
+      "date_start": "1918-02-22",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "Orléans",
+      "lat": 47.9029,
+      "lon": 1.9093,
+      "description": "Passé au 32e régiment d'artillerie de campagne, immatriculé sous le n°12543.",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-004",
+      "person_id": "person-002",
+      "regiment_id": "230e-rac",
+      "date_start": "1920-01-01",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Passé au 230e R.A.C. (régiment d'artillerie de campagne).",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-005",
+      "person_id": "person-002",
+      "regiment_id": "230e-rac",
+      "date_start": "1920-06-07",
+      "date_end": "",
+      "event_type": "démobilisation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Renvoyé dans ses foyers. Certificat de bonne conduite accordé.",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-006",
+      "person_id": "person-002",
+      "regiment_id": "117e-ra",
+      "date_start": "1934-01-01",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Toulouse",
+      "lat": 43.6047,
+      "lon": 1.4442,
+      "description": "Affecté au 1/117e régiment d'artillerie, matricule n°309 (affectation de réserve en temps de paix).",
+      "source": "Fiche matricule militaire (à référencer précisément) — lecture 'l-117-Artillerie 11°309' interprétée comme '1er groupe / 117e RA, matricule 309', à confirmer"
+    },
+    {
+      "id": "evt-em-007",
+      "person_id": "person-002",
+      "regiment_id": "cm-501-chars",
+      "date_start": "1937-10-15",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Tours",
+      "lat": 47.3941,
+      "lon": 0.6848,
+      "description": "Affecté au Centre Mobilisateur des Chars 501 (GVC — sigle à confirmer, possiblement Garde des Voies de Communication).",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-008",
+      "person_id": "person-002",
+      "regiment_id": "91e-rad",
+      "date_start": "1939-08-28",
+      "date_end": "",
+      "event_type": "mobilisation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Rappelé (réserviste) au 91e régiment d'artillerie, à la veille de la mobilisation générale de septembre 1939.",
+      "source": "Fiche matricule militaire (à référencer précisément) — lecture '91 Reg Req as' interprétée comme 91e régiment d'artillerie, à confirmer"
+    },
+    {
+      "id": "evt-em-009",
+      "person_id": "person-002",
+      "regiment_id": "di-92-a-verifier",
+      "date_start": "1940-01-01",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Affecté à la 'DI 92' — unité non identifiée avec certitude, voir fiche régiment 'di-92-a-verifier' pour le point de vigilance.",
+      "source": "Fiche matricule militaire (à référencer précisément)"
+    },
+    {
+      "id": "evt-em-004b",
+      "person_id": "person-002",
+      "regiment_id": "20e-rac",
+      "date_start": "",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Poitiers",
+      "lat": 46.5802,
+      "lon": 0.3404,
+      "description": "Affecté au 20e régiment d'artillerie de campagne (réserve). Date exacte non précisée sur l'extrait transmis — apparaît entre le 230e RAC et le C.M. Artillerie n°9 sur la fiche matricule.",
+      "source": "Fiche matricule militaire (photo transmise) — date à préciser"
+    },
+    {
+      "id": "evt-em-005b",
+      "person_id": "person-002",
+      "regiment_id": "cm-artillerie-9",
+      "date_start": "",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Affecté au Centre Mobilisateur d'Artillerie n°9 (structure de réserve, pas une unité combattante). Tampon 'Plan B' apposé sur cette ligne de la fiche. Date exacte non précisée sur l'extrait transmis.",
+      "source": "Fiche matricule militaire (photo transmise) — date à préciser"
+    },
+    {
+      "id": "evt-gj-001",
+      "person_id": "person-003",
+      "regiment_id": "6e-genie",
+      "date_start": "1916-08-09",
+      "date_end": "",
+      "event_type": "mobilisation",
+      "location_name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632,
+      "description": "Incorporé à compter du 9 août 1916, arrivé au corps le jour même (6e régiment du génie, d'après le numéro répertoire 12800 associé à cette première ligne).",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-002",
+      "person_id": "person-003",
+      "regiment_id": "7e-genie",
+      "date_start": "1917-03-03",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "Avignon",
+      "lat": 43.9493,
+      "lon": 4.8055,
+      "description": "Passé au 7e régiment du génie, répertoire n°14095.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-003",
+      "person_id": "person-003",
+      "regiment_id": "9e-genie",
+      "date_start": "1917-12-09",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "Verdun",
+      "lat": 49.1594,
+      "lon": 5.3819,
+      "description": "Passé au 9e régiment du génie, répertoire n°9020 (lecture manuscrite incertaine, à confirmer).",
+      "source": "Fiche matricule militaire (photo transmise) — numéro à confirmer"
+    },
+    {
+      "id": "evt-gj-004",
+      "person_id": "person-003",
+      "regiment_id": "6e-genie",
+      "date_start": "1918-03-15",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632,
+      "description": "Passé au 6e régiment du génie, répertoire n°18716.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-005",
+      "person_id": "person-003",
+      "regiment_id": "6e-genie",
+      "date_start": "1919-01-07",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Passé dans la réserve de l'armée active.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-006",
+      "person_id": "person-003",
+      "regiment_id": "7e-genie",
+      "date_start": "1919-02-23",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Avignon",
+      "lat": 43.9493,
+      "lon": 4.8055,
+      "description": "Passé au 7e régiment du génie (réserve), répertoire n°022676.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-007",
+      "person_id": "person-003",
+      "regiment_id": "9e-genie",
+      "date_start": "1919-03-21",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Verdun",
+      "lat": 49.1594,
+      "lon": 5.3819,
+      "description": "Passé au 9e régiment du génie (réserve), répertoire n°09030 (lecture manuscrite incertaine, à confirmer).",
+      "source": "Fiche matricule militaire (photo transmise) — numéro à confirmer"
+    },
+    {
+      "id": "evt-gj-008",
+      "person_id": "person-003",
+      "regiment_id": "6e-genie",
+      "date_start": "1919-09-10",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632,
+      "description": "Passé au 6e régiment du génie (réserve), répertoire n°025634.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-009",
+      "person_id": "person-003",
+      "regiment_id": "6e-genie",
+      "date_start": "1919-09-20",
+      "date_end": "",
+      "event_type": "démobilisation",
+      "location_name": "Prémont (Aisne)",
+      "lat": 49.9689,
+      "lon": 3.3714,
+      "description": "Envoyé en congé illimité de démobilisation à Prémont. 10e échelon n°1355. Certificat de bonne conduite 'Accordé'.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-gj-010",
+      "person_id": "person-003",
+      "regiment_id": "1er-genie",
+      "date_start": "",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Versailles",
+      "lat": 48.8014,
+      "lon": 2.1301,
+      "description": "Affecté (réserve territoriale) au 1er régiment du génie — figure dans la colonne répertoire sans date associée dans l'extrait transmis, probablement une reclassification administrative postérieure à 1919.",
+      "source": "Fiche matricule militaire (photo transmise) — date à préciser"
+    },
+    {
+      "id": "evt-gj-011",
+      "person_id": "person-003",
+      "regiment_id": "",
+      "date_start": "1929-02-27",
+      "date_end": "",
+      "event_type": "décès",
+      "location_name": "Paris 12e arrondissement",
+      "lat": 48.8352,
+      "lon": 2.4145,
+      "description": "Décédé le 27 février 1929 à Paris (12e arrondissement).",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-001",
+      "person_id": "person-004",
+      "regiment_id": "33e-ra",
+      "date_start": "1914-08-01",
+      "date_end": "",
+      "event_type": "mobilisation",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Rappelé à l'activité par décret de mobilisation générale du 1er août 1914, dirigé sur le groupe territorial du 33e régiment d'artillerie.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-002",
+      "person_id": "person-004",
+      "regiment_id": "33e-ra",
+      "date_start": "1914-08-03",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Angers",
+      "lat": 47.4784,
+      "lon": -0.5632,
+      "description": "Arrivé au corps (groupe territorial du 33e régiment d'artillerie).",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-003",
+      "person_id": "person-004",
+      "regiment_id": "33e-ra",
+      "date_start": "1915-03-25",
+      "date_end": "1915-07-15",
+      "event_type": "affectation",
+      "location_name": "Chartres",
+      "lat": 48.4467,
+      "lon": 1.4894,
+      "description": "En sursis aux établissements Weisset Chaprou et Brault frères à Chartres (usines d'armement/industrie de guerre — pratique courante de 'sursis' détachant temporairement des mobilisés vers la production de guerre).",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-004",
+      "person_id": "person-004",
+      "regiment_id": "33e-ra",
+      "date_start": "1915-07-15",
+      "date_end": "",
+      "event_type": "affectation",
+      "location_name": "Chartres",
+      "lat": 48.4467,
+      "lon": 1.4894,
+      "description": "Détaché auxdits établissements (Weisset Chaprou et Brault frères) à compter du 15 juillet 1915.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-005",
+      "person_id": "person-004",
+      "regiment_id": "102e-ri",
+      "date_start": "1917-07-01",
+      "date_end": "",
+      "event_type": "transfert",
+      "location_name": "",
+      "lat": null,
+      "lon": null,
+      "description": "Passé au 102e régiment d'infanterie.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    },
+    {
+      "id": "evt-vc-006",
+      "person_id": "person-004",
+      "regiment_id": "102e-ri",
+      "date_start": "1918-10-02",
+      "date_end": "",
+      "event_type": "décès",
+      "location_name": "Chartres",
+      "lat": 48.4467,
+      "lon": 1.4894,
+      "description": "Décédé suite de maladie à l'hôpital mixte de Chartres (Eure-et-Loir) : thrombose mésentérique avec sphacèle de l'intestin.",
+      "source": "Fiche matricule militaire (photo transmise)"
+    }
+  ]
+}
