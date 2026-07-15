@@ -133,6 +133,11 @@ function getParents(p){
 }
 function displayName(p){ return `${p.surname}, ${p.given.join(', ')}`; }
 function yearOf(dateStr){ if(!dateStr || dateStr==='?') return '?'; const m=dateStr.match(/\d{4}/); return m?m[0]:dateStr; }
+function formatDate(dateStr){
+  if(!dateStr || dateStr==='?') return dateStr||'?';
+  const m = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return m ? `${m[3]}-${m[2]}-${m[1]}` : dateStr;
+}
 function wrapName(full,maxLen=26){
   const words = full.split(' ');
   let lines=[], cur='';
@@ -172,8 +177,8 @@ function cardInnerHtml(d){
   const lines = wrapName(person.nom+', '+person.prenom);
   let html = `<div class="fc-card ${genderClass}">`;
   lines.forEach(l=>{ html += `<div class="fc-name">${l}</div>`; });
-  html += `<div class="fc-meta">* ${person.birth_date||'?'}</div>`;
-  if(person.death_date) html += `<div class="fc-meta">† ${person.death_date}</div>`;
+  html += `<div class="fc-meta">* ${formatDate(person.birth_date)}</div>`;
+  if(person.death_date) html += `<div class="fc-meta">† ${formatDate(person.death_date)}</div>`;
   html += `</div>`;
   return html;
 }
@@ -206,7 +211,7 @@ function initChart(){
     const id2 = sp2.id || (sp2.data && sp2.data.id);
     const key = [id1,id2].sort().join('_');
     const date = marriages[key];
-    return date ? ('oo '+date) : '';
+    return date ? ('oo '+formatDate(date)) : '';
   });
   f3Chart.updateMainId(ROOT);
   f3Chart.updateTree({initial:true, tree_position:'fit'});
