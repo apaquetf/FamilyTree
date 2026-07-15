@@ -101,6 +101,8 @@ def parse_gedcom(path):
                     rec[cur_event]["date"] = vl
                 elif lv == 2 and tg == "PLAC" and cur_event in ("birt", "deat"):
                     rec[cur_event]["place"] = vl
+                elif lv == 2 and tg == "NOTE" and cur_event in ("birt", "deat"):
+                    rec[cur_event]["desc"] = vl
                 elif lv == 3 and tg == "LATI" and cur_event in ("birt", "deat"):
                     rec[cur_event]["lat"] = float(vl.lstrip("N").lstrip("S").rstrip() or 0) if vl else None
                     rec[cur_event]["lat_raw"] = vl
@@ -143,6 +145,8 @@ def parse_gedcom(path):
                     rec["marr"]["date"] = vl
                 elif lv == 2 and tg == "PLAC" and cur_event == "marr":
                     rec["marr"]["place"] = vl
+                elif lv == 2 and tg == "NOTE" and cur_event == "marr":
+                    rec["marr"]["desc"] = vl
                 elif lv == 1:
                     cur_event = None
                 i += 1
@@ -195,7 +199,7 @@ def build_people(indi, fam):
                 lat, lng = parse_lati_long(rec[ev].get("lat_raw"), rec[ev].get("lng_raw"))
                 if lat is not None and lng is not None:
                     embedded_places[place] = [lat, lng]
-            return {"date": norm_date(rec[ev].get("date")), "place": place}
+            return {"date": norm_date(rec[ev].get("date")), "place": place, "desc": rec[ev].get("desc")}
 
         birth, death = event("birt"), event("deat")
         occupation = " · ".join(rec["occu"]) if rec["occu"] else None
@@ -238,7 +242,11 @@ def build_people(indi, fam):
     for f in fam.values():
         if f["marr"].get("date") and f.get("husb") and f.get("wife"):
             key = "_".join(sorted([f["husb"], f["wife"]]))
-            marriages[key] = norm_date(f["marr"]["date"])
+            marriages[key] = {
+                "date": norm_date(f["marr"]["date"]),
+                "place": f["marr"].get("place"),
+                "desc": f["marr"].get("desc"),
+            }
 
     return people, marriages, embedded_places
 

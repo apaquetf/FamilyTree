@@ -159,8 +159,10 @@ function buildF3Data(){
       prenom: p.given.join(' '),
       birth_date: p.birth ? p.birth.date : null,
       birth_place: p.birth ? p.birth.place : null,
+      birth_desc: p.birth ? p.birth.desc : null,
       death_date: p.death ? p.death.date : null,
       death_place: p.death ? p.death.place : null,
+      death_desc: p.death ? p.death.desc : null,
       occupation: p.occupation
     },
     rels: {
@@ -183,11 +185,22 @@ function cardInnerHtml(d){
   return html;
 }
 
+function withDesc(place, desc){
+  const base = (place && place!=='?') ? place : 'lieu inconnu';
+  return desc ? `${base} (${desc})` : base;
+}
+
 function showTooltip(evt,d){
   const p = d.data.data;
   const tip = document.getElementById('tooltip');
-  let html = `<strong>Naissance :</strong> ${yearOf(p.birth_date)} – ${(p.birth_place&&p.birth_place!=='?')?p.birth_place:'lieu inconnu'}`;
-  if(p.death_date) html += `<br><strong>Décès :</strong> ${yearOf(p.death_date)} – ${(p.death_place&&p.death_place!=='?')?p.death_place:'lieu inconnu'}`;
+  let html = `<strong>Naissance :</strong> ${yearOf(p.birth_date)} – ${withDesc(p.birth_place, p.birth_desc)}`;
+  if(p.death_date) html += `<br><strong>Décès :</strong> ${yearOf(p.death_date)} – ${withDesc(p.death_place, p.death_desc)}`;
+  const spouseIds = (d.data.rels && d.data.rels.spouses) || [];
+  spouseIds.forEach(spId=>{
+    const key = [d.data.id, spId].sort().join('_');
+    const m = marriages[key];
+    if(m && m.date) html += `<br><strong>Mariage :</strong> ${yearOf(m.date)} – ${withDesc(m.place, m.desc)}`;
+  });
   if(p.occupation) html += `<br><strong>Profession :</strong> ${p.occupation}`;
   tip.innerHTML = html;
   tip.style.display='block';
@@ -210,8 +223,8 @@ function initChart(){
     const id1 = sp1.id || (sp1.data && sp1.data.id);
     const id2 = sp2.id || (sp2.data && sp2.data.id);
     const key = [id1,id2].sort().join('_');
-    const date = marriages[key];
-    return date ? ('oo '+formatDate(date)) : '';
+    const m = marriages[key];
+    return (m && m.date) ? ('oo '+formatDate(m.date)) : '';
   });
   f3Chart.updateMainId(ROOT);
   f3Chart.updateTree({initial:true, tree_position:'fit'});
