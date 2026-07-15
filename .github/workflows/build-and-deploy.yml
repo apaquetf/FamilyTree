@@ -1,0 +1,72 @@
+name: Build and deploy family tree
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/raw/**"
+      - "data/places.json"
+      - "sync/**"
+      - "site/**"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find the GEDCOM export
+        id: find_ged
+        run: |
+          FILE=$(ls data/raw/*.ged | head -n 1)
+          if [ -z "$FILE" ]; then
+            echo "No .ged file found in data/raw/ — export one from Gramps and commit it there."
+            exit 1
+          fi
+          echo "path=$FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Convert GEDCOM to site data
+        run: |
+          python sync/gedcom_to_json.py "${{ steps.find_ged.outputs.path }}" \
+            --places data/places.json \
+            --out site/data
+
+      - name: Commit any newly-learned place coordinates
+        run: |
+          git config user.name "family-tree-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet -- data/places.json; then
+            git add data/places.json
+            git commit -m "Update place coordinates [skip ci]"
+            git push
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
