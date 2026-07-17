@@ -2,10 +2,10 @@
 1 SOUR Gramps
 2 VERS AIO64-6.0.8--1
 2 NAME Gramps
-1 DATE 15 JUL 2026
-2 TIME 13:45:06
+1 DATE 17 JUL 2026
+2 TIME 14:22:41
 1 SUBM @SUBM@
-1 FILE C:\Users\Paque\Downloads\Family15_07.ged
+1 FILE C:\Users\Paque\Downloads\17_07.ged
 1 COPR Copyright (c) 2026 .
 1 GEDC
 2 VERS 5.5.1
@@ -72,19 +72,21 @@
 2 DATE 26 MAY 2026
 3 TIME 18:23:19
 0 @I0004@ INDI
-1 NAME Jacqueline, Françoise /Paquet/
+1 NAME Jacqueline, Françoise /Jouve/
 2 TYPE married
 2 GIVN Jacqueline, Françoise
-2 SURN Paquet
+2 SURN Jouve
 1 NAME Jacqueline, Françoise /Jouve/
 2 TYPE birth
 2 GIVN Jacqueline, Françoise
 2 SURN Jouve
 1 SEX F
+1 FAMC @F0035@
+2 PEDI birth
 1 FAMS @F0001@
 1 CHAN
-2 DATE 26 MAY 2026
-3 TIME 18:12:35
+2 DATE 15 JUL 2026
+3 TIME 19:21:36
 0 @I0005@ INDI
 1 NAME Emile, Robert, Alphonse /Paquet/
 2 TYPE birth
@@ -104,10 +106,10 @@
 2 DATE 26 MAY 2026
 3 TIME 18:31:33
 0 @I0006@ INDI
-1 NAME Yvonne, Jeanne, Henriette, Sidonée /Paquet/
+1 NAME Yvonne, Jeanne, Henriette, Sidonée /Buvry/
 2 TYPE birth
 2 GIVN Yvonne, Jeanne, Henriette, Sidonée
-2 SURN Paquet
+2 SURN Buvry
 1 NAME Yvonne, Jeanne, Henriette /Buvry/
 2 TYPE birth
 2 GIVN Yvonne, Jeanne, Henriette
@@ -121,8 +123,8 @@
 2 PLAC Saint-Mandé
 1 FAMS @F0002@
 1 CHAN
-2 DATE 26 MAY 2026
-3 TIME 19:38:44
+2 DATE 15 JUL 2026
+3 TIME 17:11:33
 0 @I0007@ INDI
 1 NAME Emile, Jules /Paquet/
 2 TYPE birth
@@ -218,10 +220,12 @@
 2 GIVN Michel
 2 SURN Fouquet
 1 SEX M
+1 FAMC @F0039@
+2 PEDI birth
 1 FAMS @F0006@
 1 CHAN
-2 DATE 26 MAY 2026
-3 TIME 18:41:07
+2 DATE 17 JUL 2026
+3 TIME 14:15:00
 0 @I0015@ INDI
 1 NAME Françoise /Theys/
 2 TYPE birth
@@ -839,6 +843,7 @@
 2 DATE 13 OCT 1874
 2 PLAC Liguières
 1 DEAT
+2 TYPE Mort pour la France
 2 DATE 2 OCT 1918
 2 PLAC Chartres
 1 OCCU Maréchal ferrant
@@ -979,6 +984,166 @@
 1 CHAN
 2 DATE 14 JUL 2026
 3 TIME 17:21:57
+0 @I0067@ INDI
+1 NAME Jean-Jacques /Jouve/
+2 TYPE birth
+2 GIVN Jean-Jacques
+2 SURN Jouve
+1 SEX M
+1 BIRT
+2 DATE 21 JUL 1913
+2 PLAC Lyon 2e Arrondissement
+1 DEAT
+2 DATE 6 SEP 2003
+2 PLAC Créteil
+1 OCCU Attaché aux chemins de fer
+1 FAMC @F0036@
+2 PEDI birth
+1 FAMS @F0035@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:35:37
+0 @I0068@ INDI
+1 NAME Julien, Joseph /Jouve/
+2 TYPE birth
+2 GIVN Julien, Joseph
+2 SURN Jouve
+1 SEX M
+1 BIRT
+2 DATE 6 SEP 1875
+2 PLAC Saint Etienne
+1 OCCU Pâtissier
+1 OCCU Rentier
+1 FAMC @F0038@
+2 PEDI birth
+1 FAMS @F0036@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:57:44
+0 @I0069@ INDI
+1 NAME Zélina /Allio/
+2 TYPE birth
+2 GIVN Zélina
+2 SURN Allio
+1 SEX F
+1 FAMS @F0036@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:20:21
+0 @I0070@ INDI
+1 NAME Catherine, Yvonne /Poyet/
+2 TYPE birth
+2 GIVN Catherine, Yvonne
+2 SURN Poyet
+1 SEX F
+1 BIRT
+2 DATE 6 NOV 1914
+2 PLAC Lyon 6e arrondissement
+1 DEAT
+2 DATE 2 SEP 1995
+2 PLAC Maisons-Laffitte
+1 FAMC @F0037@
+2 PEDI birth
+1 FAMS @F0035@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:45:21
+0 @I0071@ INDI
+1 NAME Albert, Antoine /Poyet/
+2 TYPE birth
+2 GIVN Albert, Antoine
+2 SURN Poyet
+1 SEX M
+1 OCCU Fondé de pouvoir en soierie
+1 OCCU Employé de banque
+1 FAMS @F0037@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:45:51
+0 @I0072@ INDI
+1 NAME Marie, Louise /Devaux/
+2 TYPE birth
+2 GIVN Marie, Louise
+2 SURN Devaux
+1 SEX F
+1 FAMS @F0037@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:39:30
+0 @I0073@ INDI
+1 NAME Jacques, Marie /Jouve/
+2 TYPE birth
+2 GIVN Jacques, Marie
+2 SURN Jouve
+1 SEX M
+1 FAMS @F0038@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:57:44
+0 @I0074@ INDI
+1 NAME Marie, Eulalie /Faure/
+2 TYPE birth
+2 GIVN Marie, Eulalie
+2 SURN Faure
+1 SEX F
+1 FAMS @F0038@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:57:44
+0 @I0075@ INDI
+1 NAME Georges, Louis /Girard/
+2 TYPE birth
+2 GIVN Georges, Louis
+2 SURN Girard
+1 SEX M
+1 BIRT
+2 DATE 2 OCT 1891
+2 PLAC Brehemont
+1 FAMC @F0012@
+2 PEDI birth
+1 CHAN
+2 DATE 17 JUL 2026
+3 TIME 13:42:30
+0 @I0076@ INDI
+1 NAME Auguste, Hippolyte /Girard/
+2 TYPE birth
+2 GIVN Auguste, Hippolyte
+2 SURN Girard
+1 SEX M
+1 BIRT
+2 DATE 5 DEC 1889
+2 PLAC Brehemont
+1 FAMC @F0012@
+2 PEDI birth
+1 CHAN
+2 DATE 17 JUL 2026
+3 TIME 13:43:30
+0 @I0077@ INDI
+1 NAME Albert, Marc, Marcel /Fouquet/
+2 TYPE birth
+2 GIVN Albert, Marc, Marcel
+2 SURN Fouquet
+1 SEX M
+1 BIRT
+2 DATE 19 DEC 1925
+2 PLAC Saint-Avertin
+1 DEAT
+2 DATE 21 DEC 1994
+2 PLAC Sainte-Catherine-de-Fierbois
+1 FAMS @F0039@
+1 CHAN
+2 DATE 17 JUL 2026
+3 TIME 14:18:00
+0 @I0078@ INDI
+1 NAME Madeleine /Simon/
+2 TYPE birth
+2 GIVN Madeleine
+2 SURN Simon
+1 SEX F
+1 FAMS @F0039@
+1 CHAN
+2 DATE 17 JUL 2026
+3 TIME 14:15:00
 0 @F0000@ FAM
 1 HUSB @I0001@
 1 WIFE @I0002@
@@ -1091,9 +1256,11 @@
 2 DATE 12 JUN 1888
 2 PLAC Brehemont
 1 CHIL @I0024@
+1 CHIL @I0075@
+1 CHIL @I0076@
 1 CHAN
-2 DATE 13 JUL 2026
-3 TIME 21:55:27
+2 DATE 17 JUL 2026
+3 TIME 13:43:30
 0 @F0013@ FAM
 1 HUSB @I0027@
 1 WIFE @I0028@
@@ -1268,4 +1435,42 @@
 1 CHAN
 2 DATE 14 JUL 2026
 3 TIME 17:21:57
+0 @F0035@ FAM
+1 HUSB @I0067@
+1 WIFE @I0070@
+1 MARR
+2 DATE 11 APR 1938
+2 PLAC Sainte Foy les Lyon
+1 CHIL @I0004@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:21:36
+0 @F0036@ FAM
+1 HUSB @I0068@
+1 WIFE @I0069@
+1 CHIL @I0067@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:20:21
+0 @F0037@ FAM
+1 HUSB @I0071@
+1 WIFE @I0072@
+1 CHIL @I0070@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:39:30
+0 @F0038@ FAM
+1 HUSB @I0073@
+1 WIFE @I0074@
+1 CHIL @I0068@
+1 CHAN
+2 DATE 15 JUL 2026
+3 TIME 19:57:44
+0 @F0039@ FAM
+1 HUSB @I0077@
+1 WIFE @I0078@
+1 CHIL @I0014@
+1 CHAN
+2 DATE 17 JUL 2026
+3 TIME 14:15:00
 0 TRLR
