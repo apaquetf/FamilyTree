@@ -346,11 +346,17 @@ function renderMap(){
   if(heatLayer) map.removeLayer(heatLayer);
   markerLayer.clearLayers();
   const agg = aggregate('both', currentFilter);
-  const pts = Object.entries(agg).map(([pl,d])=>[...places[pl], Math.min(d.count,5)]);
-  heatLayer = L.heatLayer(pts,{radius:40,blur:30,maxZoom:8}).addTo(map);
-  Object.entries(agg).forEach(([pl,d])=>{
-    L.circleMarker(places[pl],{radius:5,color:'#8A3B2B',fillColor:'#8A3B2B',fillOpacity:0.8,weight:1})
-      .bindPopup(`<strong>${pl}</strong><br>${d.people.join('<br>')}`)
+  const entries = Object.entries(agg);
+  const maxCount = entries.reduce((m,[,d])=>Math.max(m,d.count),1);
+  const pts = entries.map(([pl,d])=>[...places[pl], d.count]);
+  heatLayer = L.heatLayer(pts,{
+    radius:22, blur:18, max:maxCount, minOpacity:0.25, maxZoom:9,
+    gradient:{0.0:'#2C5F8A',0.35:'#4F6B52',0.6:'#D9A441',0.8:'#D9762B',1.0:'#8A3B2B'}
+  }).addTo(map);
+  entries.forEach(([pl,d])=>{
+    const r = 4 + Math.sqrt(d.count)*2;
+    L.circleMarker(places[pl],{radius:r,color:'#8A3B2B',fillColor:'#8A3B2B',fillOpacity:0.7,weight:1})
+      .bindPopup(`<strong>${pl}</strong> — ${d.count} événement(s)<br>${d.people.join('<br>')}`)
       .addTo(markerLayer);
   });
 }
