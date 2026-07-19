@@ -2,10 +2,10 @@
 1 SOUR Gramps
 2 VERS AIO64-6.0.8--1
 2 NAME Gramps
-1 DATE 17 JUL 2026
-2 TIME 19:51:17
+1 DATE 19 JUL 2026
+2 TIME 19:51:29
 1 SUBM @SUBM@
-1 FILE C:\Users\Paque\Downloads\17_07_v2.ged
+1 FILE C:\Users\Paque\Downloads\19_07.ged
 1 COPR Copyright (c) 2026 .
 1 GEDC
 2 VERS 5.5.1
@@ -863,7 +863,7 @@
 1 SEX M
 1 BIRT
 2 DATE 13 OCT 1874
-2 PLAC Liguières
+2 PLAC Lignières-de-Touraine
 1 DEAT
 2 TYPE Mort pour la France
 2 DATE 2 OCT 1918
@@ -873,8 +873,8 @@
 2 PEDI birth
 1 FAMS @F0029@
 1 CHAN
-2 DATE 14 JUL 2026
-3 TIME 16:33:22
+2 DATE 19 JUL 2026
+3 TIME 19:33:28
 0 @I0056@ INDI
 1 NAME Berthe /Laurenceau/
 2 TYPE birth
@@ -892,29 +892,41 @@
 2 DATE 14 JUL 2026
 3 TIME 16:36:26
 0 @I0057@ INDI
-1 NAME Constant /Villard/
+1 NAME Jean, Constant /Villard/
 2 TYPE birth
-2 GIVN Constant
+2 GIVN Jean, Constant
 2 SURN Villard
 1 SEX M
+1 BIRT
+2 DATE 30 AUG 1842
+2 PLAC Saint-Pierre-d'Exideuil
 1 DEAT
 2 DATE 26 AUG 1889
-2 PLAC Liguières
+2 PLAC Lignières-de-Touraine
+1 OCCU maréchal ferrant
+1 FAMC @F0046@
+2 PEDI birth
 1 FAMS @F0030@
 1 CHAN
-2 DATE 14 JUL 2026
-3 TIME 16:33:22
+2 DATE 19 JUL 2026
+3 TIME 19:20:20
 0 @I0058@ INDI
 1 NAME Marie, Louise /Guibert/
 2 TYPE birth
 2 GIVN Marie, Louise
 2 SURN Guibert
 1 SEX F
+1 BIRT
+2 DATE 3 AUG 1853
+2 PLAC Lignières-de-Touraine
 1 OCCU Epicière
+1 OCCU Couturière
+1 FAMC @F0047@
+2 PEDI birth
 1 FAMS @F0030@
 1 CHAN
-2 DATE 14 JUL 2026
-3 TIME 16:33:22
+2 DATE 19 JUL 2026
+3 TIME 19:41:29
 0 @I0059@ INDI
 1 NAME Etienne /Laurenceau/
 2 TYPE birth
@@ -1322,6 +1334,62 @@
 1 CHAN
 2 DATE 17 JUL 2026
 3 TIME 17:16:14
+0 @I0092@ INDI
+1 NAME François, Constant /Villard/
+2 TYPE birth
+2 GIVN François, Constant
+2 SURN Villard
+1 SEX M
+1 BIRT
+2 DATE 1816
+1 DEAT
+2 DATE 25 OCT 1864
+2 PLAC Civray
+1 OCCU Serrurier
+1 FAMS @F0046@
+1 RESI
+2 ADDR Civray-de-Touraine
+3 ADR2 Civray-de-Touraine
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:36:16
+0 @I0093@ INDI
+1 NAME Jeanne /Nicoulaud/
+2 TYPE birth
+2 GIVN Jeanne
+2 SURN Nicoulaud
+1 SEX F
+1 BIRT
+2 DATE 1814
+1 OCCU Journalière
+1 FAMS @F0046@
+1 RESI
+2 ADDR Cheillé?
+3 ADR2 Cheillé?
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:37:27
+0 @I0094@ INDI
+1 NAME Louis /Guibert/
+2 TYPE birth
+2 GIVN Louis
+2 SURN Guibert
+1 SEX M
+1 OCCU Menuisier
+1 FAMS @F0047@
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:39:02
+0 @I0095@ INDI
+1 NAME Marie, Constance /Laville/
+2 TYPE birth
+2 GIVN Marie, Constance
+2 SURN Laville
+1 SEX F
+1 FAMS @F0047@
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:41:29
 0 @F0000@ FAM
 1 HUSB @I0001@
 1 WIFE @I0002@
@@ -1585,10 +1653,13 @@
 0 @F0030@ FAM
 1 HUSB @I0057@
 1 WIFE @I0058@
+1 MARR
+2 DATE 13 MAY 1872
+2 PLAC Lignières-de-Touraine
 1 CHIL @I0055@
 1 CHAN
-2 DATE 14 JUL 2026
-3 TIME 16:33:22
+2 DATE 19 JUL 2026
+3 TIME 19:33:28
 0 @F0031@ FAM
 1 HUSB @I0059@
 1 WIFE @I0060@
@@ -1697,4 +1768,18 @@
 1 CHAN
 2 DATE 17 JUL 2026
 3 TIME 17:13:51
+0 @F0046@ FAM
+1 HUSB @I0092@
+1 WIFE @I0093@
+1 CHIL @I0057@
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:15:26
+0 @F0047@ FAM
+1 HUSB @I0094@
+1 WIFE @I0095@
+1 CHIL @I0058@
+1 CHAN
+2 DATE 19 JUL 2026
+3 TIME 19:41:29
 0 TRLR
